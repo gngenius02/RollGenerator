@@ -1,2 +1,3 @@
 # RollGenerator
-Made to generate roll data based on hashing algos.
+
+Made to generate roll data based on hashing algo from certain sites.

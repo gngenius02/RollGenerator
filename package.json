@@ -1,0 +1,21 @@
+{
+	"name": "RollGenerator",
+	"version": "1.0.0",
+	"description": "Made to generate roll data based on hashing algos.",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gngenius02/RollGenerator.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/gngenius02/RollGenerator/issues"
+	},
+	"homepage": "https://github.com/gngenius02/RollGenerator#readme",
+	"dependencies": {}
+}
