@@ -77,7 +77,8 @@ rollArray: [
 '{"nonce":5,"roll":4936}','{"nonce":6,"roll":1218}',
 '{"nonce":7,"roll":1539}','{"nonce":8,"roll":8831}',
 '{"nonce":9,"roll":4134}','{"nonce":10,"roll":6730}' . . .
-
+finished writing to file.
+Generated rolls and wrote to file in: 1.003s    //this is for 10 seeds x 10000 rolls each
  ```
 ---
 
