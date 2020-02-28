@@ -1,9 +1,9 @@
 const { createHash, randomBytes } = require('crypto');
 
 class SeedGenerator {
-	constructor() {
-		this.server = this.newServerSeed();
-		this.client = this.newClientSeed();
+	constructor(server, client) {
+		this.server = server || this.newServerSeed();
+		this.client = client || this.newClientSeed();
 	}
 	sha512(message) {
 		return createHash('sha512')

@@ -1,22 +1,12 @@
 const { SeedGenerator } = require('./SeedGenerator');
 
 class DuckDiceRollGenerator extends SeedGenerator {
-	constructor() {
-		super();
-		this.nonce = 0;
-		this.numberOfRolls = 10000;
-		if (arguments.length > 0 && 'object' === typeof arguments[0]) {
-			let keys = Object.entries(arguments[0]);
-			for (let key of keys) {
-				if (key[0].match(/server|client|nonce|numberOfRolls/))
-					this[key[0]] = key[1];
-			}
-		}
+	constructor(server, client, nonce, numberOfRolls) {
+		super(server, client);
+		this.nonce = nonce || 0;
+		this.numberOfRolls = numberOfRolls || 10000;
 		this.seedhash = this.sha256(this.server);
 		this.rollArray = this.genRolls(this.numberOfRolls);
-	}
-	tostr(o) {
-		return JSON.stringify(o);
 	}
 	genRolls(numLoops) {
 		let current = this.nonce;
@@ -26,7 +16,7 @@ class DuckDiceRollGenerator extends SeedGenerator {
 			this.nonce = current;
 			const { nonce } = this;
 			const roll = this.getRoll(`${this.server}${this.client}${current}`);
-			arr.push(this.tostr({ nonce, roll }));
+			arr.push(JSON.stringify({ nonce, roll }));
 		}
 		return arr;
 	}
@@ -41,5 +31,5 @@ class DuckDiceRollGenerator extends SeedGenerator {
 		return lucky % 10000;
 	}
 }
-const RollGenerator = DuckDiceRollGenerator;
-module.exports = { RollGenerator };
+
+module.exports = { DuckDiceRollGenerator };
